@@ -21,6 +21,23 @@ class user {
 
 }
 
+class premium_user extends user{
+    function __construct($name, $lastname, $mail, $password, $type, $discount, $code)
+   {
+    parent::__construct($name, $lastname, $mail, $password, $type);
+    $this ->discount = $discount;
+    $this ->code = $code;
+    }
+
+    public function setDiscount($discount, $code){
+        if ($code == 'abc123') {
+            return $this-> discount = 10;
+        }
+    }
+
+
+}
+
 class product 
 {
     public $name;
