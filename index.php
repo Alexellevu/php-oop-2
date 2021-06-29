@@ -8,6 +8,7 @@ class user {
    private $password;
    private $type;
 
+
    function __construct($name, $lastname, $mail, $password, $type)
    {
     $this ->name= $name;
@@ -21,6 +22,9 @@ class user {
 
 }
 
+
+
+
 class premium_user extends user{
     function __construct($name, $lastname, $mail, $password, $type, $discount, $code)
    {
@@ -29,12 +33,13 @@ class premium_user extends user{
     $this ->code = $code;
     }
 
-    public function setDiscount($discount, $code){
-        if ($code == 'abc123') {
-            return $this-> discount = 10;
+    public function setDiscountPremium($discount, $type){
+        if ($type == 'Premium') {
+            return $this-> discount = 15;
         }
     }
 
+    
 
 }
 
@@ -44,17 +49,54 @@ class product
     public $brand;
     public $quanty;
     public $price;
+    public $discount = 0;
     
-   function __construct($name, $brand, $quanty, $price)
+   function __construct($name, $brand, $quanty, $price, $discount)
    {
     $this ->name= $name;
     $this ->brand = $brand;
     $this ->quanty= $quanty;
-    $this ->price =$price;
+    $this ->price = $price;
+    $this ->discount = $discount;
     
     
    }
+
+ 
     
+}
+
+class cart{
+    public $items;
+    public $total;
+
+    public function __construct($items,$total)
+    {
+       $this->items = $items;
+       $this->$total = $total;
+    }
+
+    public function setItems($items) {
+        $this->items = $items;
+    }
+    
+
+}
+class CreditCard
+{
+    private $name;
+    private $number;
+    private $deadline;
+    private $code;
+
+
+    public function __construct($name, $number, $deadline, $code)
+    {
+        $this ->name= $name;
+        $this ->number = $number;
+        $this ->deadline= $deadline;
+        $this ->code = $code;
+    }
 }
 
 ?>
