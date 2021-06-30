@@ -51,8 +51,12 @@ class User {
 
        $user = new User('Alex','ellevu','alex@example.it','alx', 777);
 
+
        $user ->getname();
-       var_dump($user->getName());
+
+
+       $user2 = new Premium_user('Emma','Abate','Emma@example.it','Emm', 456);
+       
 
 ?>
 
@@ -65,6 +69,7 @@ class User {
     <title>Document</title>
 </head>
 <body>
-    <h1> <?php echo $user->getName() ?></h1>
+    <h1>Utente Standard: <?php echo $user->getName() ?></h1>
+    <h1>Utente Premium: <?php echo $user2->getName() ?></h1>
 </body>
 </html>
