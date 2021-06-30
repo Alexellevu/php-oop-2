@@ -9,8 +9,18 @@ trait Callname
     }
 } 
 
+trait Call_lastname
+{
+    protected $lastname;
+    public function getLastname()
+    {
+         return $this->lastname;
+    }
+}
+
 class User {
-    use Callname;
+        use Callname;
+        use Call_lastname;
        protected $name;
        protected $lastname;
        protected $mail;
@@ -33,6 +43,7 @@ class User {
     }
     class Premium_user extends User{
         use Callname;
+        use Call_lastname;
         protected $isPremium = true;
         protected $discount;
         
@@ -50,12 +61,12 @@ class User {
         }
 
        $user = new User('Alex','ellevu','alex@example.it','alx', 777);
-
-
        $user ->getname();
-
+       $user ->getLastname();
 
        $user2 = new Premium_user('Emma','Abate','Emma@example.it','Emm', 456);
+       $user2 ->getname();
+       $user2 ->getLastname();
        
 
 ?>
@@ -70,6 +81,10 @@ class User {
 </head>
 <body>
     <h1>Utente Standard: <?php echo $user->getName() ?></h1>
+    <h1>cognome: <?php echo $user->getlastname() ?></h1>
     <h1>Utente Premium: <?php echo $user2->getName() ?></h1>
+    <h1>cognome: <?php echo $user2->getlastname() ?></h1>
+    
+    
 </body>
 </html>
