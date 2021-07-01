@@ -20,6 +20,8 @@ require_once __DIR__. './classes/db.php';
 <body>
     <?php foreach($products as $product) :?>
             <h1><?php echo $product ->name(); ?></h1>
+            <p><?php echo $product ->desc(); ?></p>
+            <span><?php echo $product ->price(); ?></span>
             
 
     <?php endforeach; ?>
