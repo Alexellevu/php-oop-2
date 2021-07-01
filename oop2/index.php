@@ -22,8 +22,15 @@ require_once __DIR__. './classes/db.php';
             <h1><?php echo $product ->name(); ?></h1>
             <p><?php echo $product ->desc(); ?></p>
             <span><?php echo $product ->price(); ?></span>
-            
-
     <?php endforeach; ?>
+    
+    <?php foreach($products as $product) :?>
+        <?php if (method_exists($user,'isPremium') && ($user->isPremium()): ?>    
+        <h2> <?php $user->name();  ?> </h2>
+
+        <?php endif; ?>
+        
+    <?php endforeach; ?>
+
 </body>
 </html>
